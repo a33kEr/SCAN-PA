@@ -1,0 +1,105 @@
+
+SCAN-PA: The Multi-Tool Web Vulnerability Scanner Installation Guide
+
+This document provides a detailed guide for installing and setting up SCAN-PA on your local machine.
+
+1. Prerequisites
+================
+Before installing SCAN-PA, ensure that the following requirements are met:
+
+- **Python 3.6+** must be installed on your system.
+- Basic Linux command-line knowledge is required.
+- Internet access is required for performing certain external scans.
+- Certain external tools should be installed to take advantage of SCAN-PA’s full functionality. These tools include:
+    - Nmap
+    - SSLyze
+    - theHarvester
+    - Wafw00f
+    - Nikto
+    - Uniscan
+    - Golismero
+    
+To install these tools, use the following commands:
+
+```
+sudo apt-get install nmap wafw00f nikto uniscan golismero
+pip3 install sslyze
+pip3 install theHarvester
+```
+
+2. Cloning the Repository
+=========================
+1. Open your terminal.
+2. Clone the SCAN-PA repository from GitHub by running the following command:
+
+```
+git clone https://github.com/a33kEr/SCAN-PA.git
+```
+
+3. Navigate to the directory of the cloned repository:
+
+```
+cd SCAN-PA
+```
+
+3. Installing Dependencies
+==========================
+SCAN-PA may require certain Python packages. The dependencies can be installed as follows:
+
+- Ensure you have pip installed. If not, run:
+
+```
+sudo apt install python3-pip
+```
+
+- Install the required Python packages from the `requirements.txt` file (if available). Otherwise, ensure that the `setuptools` library is installed:
+
+```
+pip3 install setuptools
+```
+
+4. Running SCAN-PA
+===================
+To run the SCAN-PA tool, use the following command:
+
+```
+python3 SCAN-PA.py
+```
+
+You can also run it with arguments to configure the scan. For example:
+
+- **Scanning a domain**:
+
+```
+python3 SCAN-PA.py example.com
+```
+
+- **Skipping certain tools (e.g., dmitry and theHarvester)**:
+
+```
+python3 SCAN-PA.py example.com --skip dmitry --skip theHarvester
+```
+
+5. Updating SCAN-PA
+====================
+To update SCAN-PA to the latest version, run:
+
+```
+python3 SCAN-PA.py --update
+```
+
+6. Additional Tools
+===================
+If you would like to install additional tools or dependencies, refer to their specific documentation or use the following commands to install them via `apt` or `pip`.
+
+7. Troubleshooting
+==================
+- **Python Version Issues**: Ensure you are using Python 3.6 or above by checking with `python3 --version`.
+- **Permission Denied Errors**: If you encounter permission errors, try running the commands with `sudo`.
+- **Missing Tools**: Ensure all required tools (Nmap, SSLyze, etc.) are properly installed by running them directly in the terminal.
+
+For any further issues, please consult the project's GitHub page or open an issue.
+
+8. Conclusion
+=============
+Once installed, SCAN-PA will be ready to use for web vulnerability scanning. Feel free to customize the usage by enabling or skipping specific tests and updating the tool as needed.
